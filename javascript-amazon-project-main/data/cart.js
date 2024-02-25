@@ -25,3 +25,7 @@ export function addToCart(productId) {
     });
   }
 }
+
+export function removeFromCart(productId) {
+  
+}
