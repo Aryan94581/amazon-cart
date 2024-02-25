@@ -61,9 +61,9 @@ const productsGrid = (document.querySelector(".js-products-grid").innerHTML =
 
 function addToCart(productId) {
   let matchingItem;
-  cart.forEach((item) => {
-    if (productId === item.productId) {
-      matchingItem = item;
+  cart.forEach((cartItem) => {
+    if (productId === cartItem.productId) {
+      matchingItem = cartItem;
     }
   });
   if (matchingItem) {
