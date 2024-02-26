@@ -2,6 +2,8 @@ import { cart, removeFromCart } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 
+const toodayDate = dayjs();
+
 let cartSummryhtml = "";
 
 cart.forEach((cartItem) => {
@@ -59,7 +61,10 @@ cart.forEach((cartItem) => {
                     name="delivery-option-${matchingProduct.id}"
                   />
                   <div>
-                    <div class="delivery-option-date">Tuesday, June 21</div>
+                    <div class="delivery-option-date">${toodayDate.add(
+                      7,
+                      "day"
+                    )}</div>
                     <div class="delivery-option-price">FREE Shipping</div>
                   </div>
                 </div>
@@ -70,7 +75,10 @@ cart.forEach((cartItem) => {
                     name="delivery-option-${matchingProduct.id}"
                   />
                   <div>
-                    <div class="delivery-option-date">Wednesday, June 15</div>
+                    <div class="delivery-option-date">${toodayDate.add(
+                      3,
+                      "day"
+                    )}</div>
                     <div class="delivery-option-price">$4.99 - Shipping</div>
                   </div>
                 </div>
@@ -81,7 +89,10 @@ cart.forEach((cartItem) => {
                     name="delivery-option-${matchingProduct.id}"
                   />
                   <div>
-                    <div class="delivery-option-date">Monday, June 13</div>
+                    <div class="delivery-option-date">${toodayDate.add(
+                      1,
+                      "day"
+                    )}</div>
                     <div class="delivery-option-price">$9.99 - Shipping</div>
                   </div>
                 </div>
