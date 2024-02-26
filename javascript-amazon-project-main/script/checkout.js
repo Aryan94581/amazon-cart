@@ -71,13 +71,13 @@ function deliveryOptionsHtml(matchingProduct, cartItem) {
         ? `FREE`
         : `$${formatCurrency(deliveryOption.priceCents)} -`;
 
-    const isChacked = deliveryOption.id === cartItem.deliveryOptionId;
+    const isChecked = deliveryOptions.id === cartItem.deliveryOptionId;
 
     html += `
           <div class="delivery-option">
         <input
         type="radio" 
-        ${isChacked ? "checked" : ""}
+        ${isChecked ? "checked" : ""}
         class="delivery-option-input"
         name="delivery-option-${matchingProduct.id}"
       />
