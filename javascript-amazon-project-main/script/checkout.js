@@ -53,13 +53,13 @@ cart.forEach((cartItem) => {
                 <div class="delivery-options-title">
                   Choose a delivery option:
                 </div>
-                ${deliveryOptionsHtml(matchingProduct)}
+                ${deliveryOptionsHtml(matchingProduct, cartItem)}
               </div>
             </div>
           </div>
     `;
 });
-function deliveryOptionsHtml(matchingProduct) {
+function deliveryOptionsHtml(matchingProduct, cartItem) {
   let html = "";
   deliveryOptions.forEach((deliveryOption) => {
     const today = dayjs();
@@ -67,14 +67,17 @@ function deliveryOptionsHtml(matchingProduct) {
 
     const dateString = deliveryDate.format("dddd, MMMM D");
     const priceString =
-      deliveryOptions.priceCents === 0
+      deliveryOption.priceCents === 0
         ? `FREE`
         : `$${formatCurrency(deliveryOption.priceCents)} -`;
+
+    const isChacked = deliveryOption.id === cartItem.deliveryOptionId;
 
     html += `
           <div class="delivery-option">
         <input
-        type="radio" checked
+        type="radio" 
+        ${isChacked ? "checked" : ""}
         class="delivery-option-input"
         name="delivery-option-${matchingProduct.id}"
       />
@@ -89,7 +92,6 @@ function deliveryOptionsHtml(matchingProduct) {
 }
 
 document.querySelector(".js-order-summry").innerHTML = cartSummryhtml;
-
 document.querySelectorAll(".js-delete-quantity-link").forEach((link) => {
   link.addEventListener("click", () => {
     let productId = link.dataset.productId;
