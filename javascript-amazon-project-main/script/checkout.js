@@ -1,12 +1,10 @@
 import { cart, removeFromCart } from "../data/cart.js";
 import { products } from "../data/products.js";
-import { formatCurrency, UpdatedDate } from "./utils/money.js";
-import { dayjs } from "https://unpkg.com/dayjs@1.11.10/dayjs.min.js";
+import { formatCurrency } from "./utils/money.js";
+import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 
-// const today = dayjs();
-// const deliveryDate = todayDate.add(days, "day");
-// deliveryDate.format("DDDD, MMMM D");
-// console.log(deliveryDate);
+const today = dayjs();
+const deliveryDate = today.add(7, "day").format("dddd, MMMM D");
 
 let cartSummryhtml = "";
 
@@ -65,7 +63,7 @@ cart.forEach((cartItem) => {
                     name="delivery-option-${matchingProduct.id}"
                   />
                   <div>
-                    <div class="delivery-option-date">${UpdatedDate(7)}</div>
+                    <div class="delivery-option-date">${deliveryDate}</div>
                     <div class="delivery-option-price">FREE Shipping</div>
                   </div>
                 </div>
@@ -76,7 +74,7 @@ cart.forEach((cartItem) => {
                     name="delivery-option-${matchingProduct.id}"
                   />
                   <div>
-                    <div class="delivery-option-date">${UpdatedDate(3)}</div>
+                    <div class="delivery-option-date">${deliveryDate}</div>
                     <div class="delivery-option-price">$4.99 - Shipping</div>
                   </div>
                 </div>
@@ -87,7 +85,7 @@ cart.forEach((cartItem) => {
                     name="delivery-option-${matchingProduct.id}"
                   />
                   <div>
-                    <div class="delivery-option-date">${UpdatedDate(1)}</div>
+                    <div class="delivery-option-date">${deliveryDate}</div>
                     <div class="delivery-option-price">$9.99 - Shipping</div>
                   </div>
                 </div>
