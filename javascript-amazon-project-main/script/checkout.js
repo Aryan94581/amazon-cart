@@ -1,8 +1,12 @@
 import { cart, removeFromCart } from "../data/cart.js";
 import { products } from "../data/products.js";
-import { formatCurrency } from "./utils/money.js";
+import { formatCurrency, UpdatedDate } from "./utils/money.js";
+import { dayjs } from "https://unpkg.com/dayjs@1.11.10/dayjs.min.js";
 
-const toodayDate = dayjs();
+// const today = dayjs();
+// const deliveryDate = todayDate.add(days, "day");
+// deliveryDate.format("DDDD, MMMM D");
+// console.log(deliveryDate);
 
 let cartSummryhtml = "";
 
@@ -61,10 +65,7 @@ cart.forEach((cartItem) => {
                     name="delivery-option-${matchingProduct.id}"
                   />
                   <div>
-                    <div class="delivery-option-date">${toodayDate.add(
-                      7,
-                      "day"
-                    )}</div>
+                    <div class="delivery-option-date">${UpdatedDate(7)}</div>
                     <div class="delivery-option-price">FREE Shipping</div>
                   </div>
                 </div>
@@ -75,10 +76,7 @@ cart.forEach((cartItem) => {
                     name="delivery-option-${matchingProduct.id}"
                   />
                   <div>
-                    <div class="delivery-option-date">${toodayDate.add(
-                      3,
-                      "day"
-                    )}</div>
+                    <div class="delivery-option-date">${UpdatedDate(3)}</div>
                     <div class="delivery-option-price">$4.99 - Shipping</div>
                   </div>
                 </div>
@@ -89,10 +87,7 @@ cart.forEach((cartItem) => {
                     name="delivery-option-${matchingProduct.id}"
                   />
                   <div>
-                    <div class="delivery-option-date">${toodayDate.add(
-                      1,
-                      "day"
-                    )}</div>
+                    <div class="delivery-option-date">${UpdatedDate(1)}</div>
                     <div class="delivery-option-price">$9.99 - Shipping</div>
                   </div>
                 </div>
