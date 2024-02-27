@@ -10,6 +10,7 @@ import {
   deliveryOptions,
   getDeliveryOption,
 } from "../../data/deliveryOptions.js";
+import { randerPaymentSummary } from "./paymentSystem.js";
 
 export function renderCartSummry() {
   let cartSummryhtml = "";
@@ -111,6 +112,7 @@ export function renderCartSummry() {
       removeFromCart(productId);
 
       document.querySelector(`.js-cart-item-container-${productId}`).remove();
+      randerPaymentSummary();
     });
   });
 
@@ -119,6 +121,7 @@ export function renderCartSummry() {
       const { productId, deliveryOptionId } = element.dataset;
       updateDeliveryOptions(productId, deliveryOptionId);
       renderCartSummry();
+      randerPaymentSummary();
     });
   });
 }

@@ -56,5 +56,5 @@ export function randerPaymentSummary() {
     </button>
     `;
   document.querySelector(".js-payment-summary").innerHTML = paymentSummaryHtml;
-  randerPaymentSummary();
+  
 }
