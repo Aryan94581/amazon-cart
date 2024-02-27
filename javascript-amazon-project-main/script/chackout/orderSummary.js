@@ -11,21 +11,20 @@ import {
   getDeliveryOption,
 } from "../../data/deliveryOptions.js";
 
-
 export function renderCartSummry() {
   let cartSummryhtml = "";
   cart.forEach((cartItem) => {
+    // *
     const productId = cartItem.productId;
     const matchingProduct = getProduct(productId);
-    // *****
+    // **
     const deliveryOptionId = cartItem.deliveryOptionId;
-    let deliveryOption = getDeliveryOption(deliveryOptions);
-
-    
+    const deliveryOption = getDeliveryOption(deliveryOptionId);
+    // ***
+    const today = dayjs();
     const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
-
     const dateString = deliveryDate.format("dddd, MMMM D");
-
+    // ***
     cartSummryhtml += `
     <div class="cart-item-container 
     js-cart-item-container-${matchingProduct.id}">
