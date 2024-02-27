@@ -1,6 +1,7 @@
 import { cart } from "../../data/cart.js";
 import { getProduct } from "../../data/products.js";
 import { getDeliveryOption } from "../../data/deliveryOptions.js";
+import { formatCurrency } from "../utils/money.js";
 
 export function randerPaymentSummary() {
   let productPriceCents = 0;
@@ -22,7 +23,7 @@ export function randerPaymentSummary() {
     <div class="payment-summary-title">Order Summary</div>
 
     <div class="payment-summary-row">
-    <div>Items (3):</div>
+    <div>Items (${cart.length}):</div>
     <div class="payment-summary-money">$
     ${formatCurrency(productPriceCents)}</div>
     </div>
@@ -54,4 +55,6 @@ export function randerPaymentSummary() {
     Place your order
     </button>
     `;
+  document.querySelector(".js-payment-summary").innerHTML = paymentSummaryHtml;
+  randerPaymentSummary();
 }
