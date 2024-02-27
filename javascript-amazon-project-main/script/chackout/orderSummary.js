@@ -6,18 +6,22 @@ import {
 import { products, getProduct } from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
-import { deliveryOptions } from "../../data/deliveryOptions.js";
+import {
+  deliveryOptions,
+  getDeliveryOption,
+} from "../../data/deliveryOptions.js";
+
 
 export function renderCartSummry() {
   let cartSummryhtml = "";
   cart.forEach((cartItem) => {
     const productId = cartItem.productId;
     const matchingProduct = getProduct(productId);
-
-    // const deliveryOptionId = cartItem.deliveryOptionId;
+    // *****
+    const deliveryOptionId = cartItem.deliveryOptionId;
     let deliveryOption = getDeliveryOption(deliveryOptions);
 
-    const today = dayjs();
+    
     const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
 
     const dateString = deliveryDate.format("dddd, MMMM D");

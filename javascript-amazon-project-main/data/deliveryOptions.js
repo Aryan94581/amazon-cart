@@ -17,7 +17,6 @@ export const deliveryOptions = [
 ];
 
 export function getDeliveryOption(deliveryOptionId) {
-  // const deliveryOptionId = cartItem.deliveryOptionId;
   let deliveryOption;
 
   deliveryOptions.forEach((option) => {
