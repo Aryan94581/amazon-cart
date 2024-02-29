@@ -2,7 +2,7 @@ import {
   cart,
   removeFromCart,
   updateDeliveryOptions,
-  cartQuantityItem,
+  updateCartQuantity,
 } from "../../data/cart.js";
 import { products, getProduct } from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
@@ -72,6 +72,8 @@ export function renderCartSummry() {
           </div>
     `;
   });
+  
+
   function deliveryOptionsHtml(matchingProduct, cartItem) {
     let html = "";
     deliveryOptions.forEach((deliveryOption) => {
@@ -126,8 +128,3 @@ export function renderCartSummry() {
     });
   });
 }
-
-// document.querySelector(
-//   ".js-checkout-header-middle-section"
-// ).innerHTML = `Checkout (<a class="return-to-home-link" href="amazon.html">${cartQuantity(cartItem)} items</a
-// >)`;

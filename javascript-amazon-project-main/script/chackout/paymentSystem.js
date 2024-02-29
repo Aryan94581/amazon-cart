@@ -1,4 +1,4 @@
-import { cart } from "../../data/cart.js";
+import { cart, updateCartQuantity } from "../../data/cart.js";
 import { getProduct } from "../../data/products.js";
 import { getDeliveryOption } from "../../data/deliveryOptions.js";
 import { formatCurrency } from "../utils/money.js";
@@ -23,7 +23,7 @@ export function randerPaymentSummary() {
     <div class="payment-summary-title">Order Summary</div>
 
     <div class="payment-summary-row">
-    <div>Items (${cart.length}):</div>
+    <div>Items (${updateCartQuantity()}):</div>
     <div class="payment-summary-money">$
     ${formatCurrency(productPriceCents)}</div>
     </div>
@@ -56,5 +56,9 @@ export function randerPaymentSummary() {
     </button>
     `;
   document.querySelector(".js-payment-summary").innerHTML = paymentSummaryHtml;
-  
+  document.querySelector(
+    ".checkout-header-middle-section"
+  ).innerHTML = `Checkout (<a class="return-to-home-link" href="amazon.html">
+  ${updateCartQuantity()} items</a
+>)`;
 }
