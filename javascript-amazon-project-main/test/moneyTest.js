@@ -1,4 +1,8 @@
 import { formatCurrency } from "../script/utils/money.js";
+
+console.log("test suite: formatCurrency");
+// a group of test is called as test suite
+
 console.log("convert cents into dollor");
 if (formatCurrency(2095) === "20.95") {
   console.log("passed");
