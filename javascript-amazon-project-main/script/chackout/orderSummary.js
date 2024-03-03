@@ -2,7 +2,6 @@ import {
   cart,
   removeFromCart,
   updateDeliveryOptions,
-  updateCartQuantity,
 } from "../../data/cart.js";
 import { products, getProduct } from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
@@ -72,7 +71,6 @@ export function renderCartSummry() {
           </div>
     `;
   });
-  
 
   function deliveryOptionsHtml(matchingProduct, cartItem) {
     let html = "";
@@ -116,6 +114,7 @@ export function renderCartSummry() {
 
       document.querySelector(`.js-cart-item-container-${productId}`).remove();
       randerPaymentSummary();
+      renderCartSummry();
     });
   });
 
