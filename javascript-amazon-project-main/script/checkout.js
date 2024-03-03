@@ -1,5 +1,5 @@
-import { renderCartSummry } from "./chackout/orderSummary.js";
-import { randerPaymentSummary } from "./chackout/paymentSystem.js";
+import { renderCartSummary } from "./chackout/orderSummary.js";
+import { renderPaymentSummary } from "./chackout/paymentSystem.js";
 
-renderCartSummry();
-randerPaymentSummary();
+renderCartSummary();
+renderPaymentSummary();

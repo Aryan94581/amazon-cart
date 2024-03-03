@@ -12,9 +12,9 @@ import {
   getDeliveryOption,
   calculateDeliveryDate,
 } from "../../data/deliveryOptions.js";
-import { randerPaymentSummary } from "./paymentSystem.js";
+import { renderPaymentSummary } from "./paymentSystem.js";
 
-export function renderCartSummry() {
+export function renderCartSummary() {
   let cartSummryhtml = "";
   cart.forEach((cartItem) => {
     // *
@@ -119,8 +119,8 @@ export function renderCartSummry() {
       removeFromCart(productId);
 
       document.querySelector(`.js-cart-item-container-${productId}`).remove();
-      randerPaymentSummary();
-      renderCartSummry();
+      renderPaymentSummary();
+      renderCartSummary();
     });
   });
 
@@ -128,8 +128,8 @@ export function renderCartSummry() {
     element.addEventListener("click", () => {
       const { productId, deliveryOptionId } = element.dataset;
       updateDeliveryOptions(productId, deliveryOptionId);
-      renderCartSummry();
-      randerPaymentSummary();
+      renderCartSummary();
+      renderPaymentSummary();
     });
   });
   document.querySelectorAll(".js-update-link").forEach((link) => {
@@ -156,6 +156,7 @@ export function renderCartSummry() {
         `.js-quantity-input-${productId}`
       );
       const newQuantity = Number(quantityInput.value);
+
       updateQuantity(productId, newQuantity);
 
       const quantityLabel = document.querySelector(
@@ -163,10 +164,8 @@ export function renderCartSummry() {
       );
       quantityLabel.innerHTML = newQuantity;
 
-      renderCartSummry();
-      randerPaymentSummary();
-      renderOrderSummary();
-      updateQuantity();
+      renderCartSummary();
+      renderPaymentSummary();
     });
   });
 }
