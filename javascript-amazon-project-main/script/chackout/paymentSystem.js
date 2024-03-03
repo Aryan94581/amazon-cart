@@ -61,4 +61,10 @@ export function renderPaymentSummary() {
   ).innerHTML = `Checkout (<a class="return-to-home-link" href="amazon.html">
   ${updateCartQuantity()} items</a
 >)`;
+
+  document
+    .querySelector(".place-order-button")
+    .addEventListener("click", function () {
+      window.location.href = "orders.html";
+    });
 }
